@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tere Bina, Adhoora Sa 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#1a0b1f;--bg2:#3d1230;--tx:#fbe9ef;--ac:#ff6b8b;--card:rgba(255,255,255,.08);--bd:rgba(255,255,255,.18);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg1:#fff0f3;--bg2:#ffd1dc;--tx:#4a1428;--ac:#d6336c;--card:rgba(255,255,255,.6);--bd:rgba(214,51,108,.25)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Poppins',sans-serif;color:var(--tx);background:linear-gradient(135deg,var(--bg1),var(--bg2));transition:.6s}
+.pg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 24px 90px;opacity:0;pointer-events:none;transform:translateX(40px);transition:.7s;overflow-y:auto}
+.pg.on{opacity:1;pointer-events:auto;transform:none}
+h1,h2{font-family:'Dancing Script',cursive;color:var(--ac);font-size:clamp(2.2rem,8vw,4rem);margin-bottom:18px}
+.sh{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,4vw,1.7rem);line-height:2;max-width:640px;min-height:12em}
+p.sub{opacity:.8;max-width:480px;line-height:1.7;margin-bottom:24px}
+.btn{background:var(--ac);color:#fff;border:0;padding:13px 30px;border-radius:40px;font-size:1rem;cursor:pointer;font-family:inherit;box-shadow:0 6px 24px rgba(255,107,139,.4);transition:.3s}
+.btn:hover{transform:scale(1.07)}
+.nav{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;align-items:center;gap:14px;z-index:5}
+.nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:1.1rem;cursor:pointer;backdrop-filter:blur(8px)}
+.dots{display:flex;gap:8px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--bd);transition:.3s}.dots i.on{background:var(--ac);transform:scale(1.5)}
+.top{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;display:flex;gap:8px;z-index:5}
+.top button,.top label{width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer;display:grid;place-items:center;font-size:1.05rem;backdrop-filter:blur(8px)}
+.heart{font-size:clamp(90px,26vw,150px);cursor:pointer;user-select:none;transition:transform .15s;filter:drop-shadow(0 0 25px var(--ac))}
+.heart:active{transform:scale(1.25)}
+.meter{width:min(300px,80vw);height:12px;background:var(--card);border-radius:10px;border:1px solid var(--bd);margin:18px 0;overflow:hidden}
+.meter div{height:100%;width:0;background:linear-gradient(90deg,#ff9ab0,var(--ac));transition:.3s}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;max-width:640px;width:100%}
+.card{height:170px;perspective:600px;cursor:pointer}
+.card>div{position:relative;width:100%;height:100%;transition:.7s;transform-style:preserve-3d}
+.card.f>div{transform:rotateY(180deg)}
+.card span{position:absolute;inset:0;display:grid;place-items:center;padding:12px;border-radius:16px;background:var(--card);border:1px solid var(--bd);backface-visibility:hidden;backdrop-filter:blur(8px);font-size:.9rem;line-height:1.5}
+.card span:last-child{transform:rotateY(180deg);background:var(--ac);color:#fff}
+.letter{max-width:600px;background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:28px 24px;text-align:left;line-height:1.9;backdrop-filter:blur(10px);font-size:1rem}
+.letter p{opacity:0;transform:translateY(10px);transition:.8s;margin-bottom:12px}
+.letter p.s{opacity:1;transform:none}
+.sign{font-family:'Dancing Script',cursive;font-size:1.7rem;color:var(--ac);text-align:right}
+.fh{position:fixed;pointer-events:none;font-size:22px;animation:up 3s ease-out forwards;z-index:9}
+@keyframes up{to{transform:translateY(-70vh) rotate(25deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="top">
+  <button id="mus" title="Music">🎵</button>
+  
+  <button id="th" title="Theme">🌙</button>
+</div>
+
+<section class="pg on"><h1 id="t1">Sunno…</h1><p class="sub"></p><button class="btn" id="go">Shuru karein 💗</button></section>
+
+<section class="pg">
+  <h2>Yaad 🌙</h2>
+  <div class="sh" data-t="Har shaam teri yaadon ki chaadar odh leta hoon,&#10;tere baghair ye dil ka aangan veeraan sa lagta hai.&#10;Teri kami har lamha ek tishnagi si reh jaati hai,&#10;aur tera khayal aaye toh dil ko ajeeb sa sukoon milta hai.&#10;I miss you kehna bhi ab naakaafi sa lagta hai,&#10;kyunki tujhse jo ishq hai, woh lafzon mein bayaan kahan hota hai.&#10;Bas itna samajh le, Muskan, teri yaad mein bhi meri mohabbat har roz aur gehri hoti jaati hai. ❤️"></div>
+</section>
+<section class="pg"><h2>Naaraazgi 🥀</h2><div class="sh" data-t="Jaanta hoon, tum thodi udaas ho, thodi khafa ho,&#10;aankhon mein ek chhupi si shikayat hai.&#10;Par yakeen karna, meri har dua mein&#10;bas teri hi muskurahat ki ibaadat hai."></div></section>
+
+<section class="pg">
+  <h2>Vaada💍</h2>
+  <div class="sh" data-t="Jaanta hoon, tum thodi udaas ho, thodi khafa ho,&#10;aankhon mein ab bhi koi posheeda si shikayat hai.&#10;Magar yaqeen rakhna, meri har dua mein&#10;bas teri muskurahat ki hi ibaadat hai.&#10;Teri khamoshi mein bhi tera dard mehsoos karta hoon,&#10;teri har ranjish ko dil se samajhta hoon.&#10;Tu bas muskura de, meri jaan,&#10;teri ek muskurahat mein hi meri saari duniya ki rahat hai. ❤️"></div>
+</section>
+<section class="pg"><h2>Dil Chhuo 💓</h2><p class="sub">Dil par baar baar tap karo, jab tak muskaan na aa jaye.</p><div class="heart" id="hrt">❤️</div><div class="meter"><div id="mb"></div></div><p class="sh" id="mt" style="min-height:3em;font-size:1.2rem">Tap karo…</p></section>
+
+<section class="pg"><h2>Pagal ki Shikayat-Peti 🤪</h2><p class="sub">Card par tap karo, ek pagal ka confession padho.</p>
+<div class="grid">
+<div class="card"><div><span>Meri sabse badi galti 🙈</span><span>Tumhe naraaz karna. Par tum gussa hoke bhi itni cute lagti ho, to ye poori meri galti thodi hai? 😭</span></div></div>
+<div class="card"><div><span>Tumhare bina main 🥴</span><span>Phone 100 baar dekhta hoon, notification zero. Ab to network wale bhi mujhse pareshaan hain 😂</span></div></div>
+<div class="card"><div><span>Doctor ne kaha 👨‍⚕️</span><span>Bimari: tumhari yaad. Ilaaj: tumhari ek smile. Dawai: bas 'chalo maaf kiya' 💊</span></div></div>
+<div class="card"><div><span>Sach bataun? 🤫</span><span>Raat ko chaand se baatein karta hoon. Wo bhi bolta hai, 'bhai usse manale, mujhe neend aa rahi hai' 🌙</span></div></div>
+<div class="card"><div><span>Meri aukaat 😅</span><span>Duniya ke liye hero hoon, tumhare saamne ek darpok pagal jo teri muskaan ka bhookha hai 🥹</span></div></div>
+<div class="card"><div><span>Aakhri confession 💌</span><span>Pagal hoon, par sirf tumhara. Mera pagalpan tumse shuru hota hai aur tum par hi khatam ✨</span></div></div>
+</div></section>
+
+<section class="pg" id="lp"><h2>Ek Khat 💌</h2>
+<div class="letter">
+<p id="l0"></p>
+<p>Janta hoon ki tumhe thoda waqt lagega theek hone mein, par main tumhe aise udaas aur khafa nahi dekh sakta. Jab tak tum sach mein theek hokar, dil se khush hokar mujhse pyaar se "na" nahi keh deti, tab tak main haar nahi maanunga.</p>
+
+<p>Main kuch na kuch karta rahunga, tumhe manata rahunga, tumhari narazgi ko samajhne ki koshish karta rahunga. Main tumhe force nahi karunga, bas tumhare saath rahunga aur jitna waqt lage, utna intezaar karunga.</p>
+
+<p>Bas main chahta hoon ki tum phir se dil se muskurao, mere saath khush raho. Tumhari ek chhoti si muskaan bhi mere liye bahut kuch hai, aur jab tak woh wapas nahi aati, main apni taraf se koshish karta rahunga.</p>
+
+<p>Ishq toh bahut hai tumse, tumhari narazgi mein bhi,<br>
+tum khafa raho toh bhi mohabbat kam na hogi kabhi.<br>
+Tumhari khamoshi ko bhi dil se samajhta rahunga,<br>
+tum na muskurao toh tumhe yun hi manata rahunga.<br>
+Bas tum theek ho jao, meri jaan, itni si hai arzoo,<br>
+tumhari ek muskaan ke liye, main har dafa tum par fida rahunga. ❤️</p>
+<p class="sign" id="sg"></p>
+</div></section>
+
+<div class="nav"><button id="pv">‹</button><div class="dots" id="dt"></div><button id="nx">›</button></div>
+
+<script>
+const HER="Jaan", ME="Tumhara apna";  // ← yahan apna aur uska naam badal do
+const pgs=[...document.querySelectorAll('.pg')],dt=document.getElementById('dt');
+let cur=0,typed={};
+pgs.forEach(()=>dt.appendChild(document.createElement('i')));
+document.getElementById('t1').textContent="Sunno, "+HER+"…";
+document.getElementById('l0').textContent="Meri pyaari "+HER+",";
+document.getElementById('sg').textContent="— "+ME+" 💗";
+function type(el){const t=el.dataset.t.replace(/&#10;/g,'\n');if(typed[t])return;typed[t]=1;el.style.whiteSpace='pre-line';el.textContent='';let i=0;const n=setInterval(()=>{el.textContent+=t[i++];if(i>=t.length)clearInterval(n)},45)}
+function show(n){n=Math.max(0,Math.min(pgs.length-1,n));pgs[cur].classList.remove('on');cur=n;pgs[cur].classList.add('on');
+[...dt.children].forEach((d,i)=>d.classList.toggle('on',i==cur));
+const s=pgs[cur].querySelector('.sh[data-t]');if(s)type(s);
+if(pgs[cur].id=='lp')pgs[cur].querySelectorAll('.letter p').forEach((p,i)=>setTimeout(()=>p.classList.add('s'),i*1200));}
+show(0);
+nx.onclick=()=>show(cur+1);pv.onclick=()=>show(cur-1);
+addEventListener('keydown',e=>{if(e.key=='ArrowRight')show(cur+1);if(e.key=='ArrowLeft')show(cur-1)});
+let sx=0;addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>60)show(cur+(d<0?1:-1))});
+// floating hearts
+addEventListener('click',e=>{if(e.target.closest('button,label'))return;const h=document.createElement('div');h.className='fh';h.textContent=['💖','💗','🌹','✨'][Math.random()*4|0];h.style.left=e.clientX-10+'px';h.style.top=e.clientY-10+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),3000)});
+// theme
+th.onclick=()=>{const r=document.documentElement,l=r.dataset.theme=='light';r.dataset.theme=l?'dark':'light';th.textContent=l?'🌙':'☀️'};
+// heart meter
+let lv=0;const msgs=["Tap karo…","Thoda aur… 🥺","Dil pighal raha hai…","Bas thoda aur! 💕","Ye hui na baat! 😊"];
+hrt.onclick=()=>{lv=Math.min(100,lv+7);mb.style.width=lv+'%';mt.textContent=lv>=100?"Muskura di na? Bas yehi chahiye tha 🥹💖":msgs[Math.min(3,lv/25|0)];
+if(lv>=100){hrt.textContent='😊';for(let i=0;i<12;i++)setTimeout(()=>{const h=document.createElement('div');h.className='fh';h.textContent='💖';h.style.left=Math.random()*90+'vw';h.style.top='80vh';document.body.appendChild(h);setTimeout(()=>h.remove(),3000)},i*150)}};
+
+// runaway "Haan" button
+
+// music: soft looping melody (Web Audio) or user's own song
+// music: user's own background song
+let playing=false;
+
+let audio=new Audio("song.mp3");
+audio.loop=true;
+audio.volume=0.6;
+
+function startM(){
+  audio.play().then(()=>{
+    playing=true;
+    mus.textContent='🎵';
+  }).catch(()=>{
+    console.log("Music could not start");
+  });
+}
+
+function stopM(){
+  audio.pause();
+  playing=false;
+  mus.textContent='🔇';
+}
+
+mus.onclick=()=>{
+  if(playing){
+    stopM();
+  }else{
+    startM();
+  }
+};
+
+go.onclick=()=>{
+  startM();
+  show(1);
+};
+</script>
+</body>
+</html>
